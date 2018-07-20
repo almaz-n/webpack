@@ -1,5 +1,8 @@
 export default (() => {
-  let i = 0;
+  let 
+      i = 0,
+      text = 'клик';
+
   const _body = document.getElementById('button');
 
   const _createButton = () => {
@@ -9,12 +12,11 @@ export default (() => {
     _body.appendChild(_btn);
   }
 
-  return {
-    
-    run: () => {
-      let text = 'клик';
+  return {    
+    run: () => {      
       _createButton();
-      _body.addEventListener('click', function(e) {
+
+      _body.addEventListener('click', (e) => {
         const _target = e.target;
 
         if(_target.tagName == 'BUTTON') {
@@ -23,8 +25,7 @@ export default (() => {
             text = 'клика';
           }
           e.target.innerText = `${i} ${text}`;
-        }
-        
+        }        
       });
     }
   }
